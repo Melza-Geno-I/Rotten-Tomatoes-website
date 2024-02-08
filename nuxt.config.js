@@ -18,7 +18,15 @@ export default {
       { name: 'format-detection', content: 'telephone=no' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        href:"https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css",
+        rel:"stylesheet"
+      },
+      {
+        href:"https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,200;1,300&family=Protest+Strike&display=swap",
+        rel:"stylesheet"
+      }
     ]
   },
 
