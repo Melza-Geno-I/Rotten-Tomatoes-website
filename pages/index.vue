@@ -1,12 +1,13 @@
 <template>
     <div>
-        <Nuxt></Nuxt>
+        <HeaderBar></HeaderBar>
     </div>
 </template>
 
 <script>
     export default {
-        name: 'default',
+        name:'index',
+        components: 'HeaderBar'
     }
 </script>
 
