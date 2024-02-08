@@ -26,6 +26,10 @@ export default {
       {
         href:"https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,200;1,300&family=Protest+Strike&display=swap",
         rel:"stylesheet"
+      },
+      {
+        href:"https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100;0,200;1,200&display=swap",
+        rel:"stylesheet"
       }
     ]
   },
