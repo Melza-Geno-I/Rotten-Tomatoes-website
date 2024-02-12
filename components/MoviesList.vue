@@ -7,17 +7,19 @@
             </div>
             <!-- <MovieCart v-for="movie in movies" :key="movie.id" :movie="movie"></MovieCart> -->
             <ul class="movies">
-                <li class="movie" v-for="movie in movies" :key="movie.id" :movie="movie">
+                <NuxtLink to="/MovieDetails" class="movie" v-for="movie in movies" :key="movie.id" :movie="movie" >
                     <div class="movie-details">
                         <figure v-if="movie.backdrop_path">
                             <img :src=" 'https://image.tmdb.org/t/p/original'+movie.backdrop_path" width="180" height="250" alt="">
                         </figure>
-                        
-                        <div class="movie-rating">{{ movie.release_date }}</div>
+                        <figcaption>
+                            <div class="movie-rating">{{ movie.popularity }}<i class="ri-eye-line"></i></div>
                         <div class="movie-name">{{ movie.title }}</div>
+                        </figcaption>
+                        
                     </div>
                     <button  @click="$store.commit('increment')"><i class="ri-add-circle-line">&nbsp;</i>WATCHLIST</button>
-                </li>
+                </NuxtLink>
             </ul>
 
 
@@ -28,6 +30,9 @@
 <script>
     export default {
         name:"MoviesList",
+        components:{
+            MovieDetails
+        },
         computed:{
             movies(){
                 return this.$store.state.movies
@@ -81,6 +86,14 @@
                     
                     img{
                         border-radius: 10px;
+                    }
+                }
+                figcaption{
+                    font-family: Poppins, sans-serif;
+                    font-size: 12px;
+                    padding: 5px;
+                    div{
+                        padding: 3px;
                     }
                 }
             }
