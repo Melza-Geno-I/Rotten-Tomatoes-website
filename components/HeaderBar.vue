@@ -14,11 +14,11 @@
                     <h5>LOGIN/SIGNUP</h5>
                 </div>
                 <ul class="nav">
-                    <li>MOVIES</li>
-                    <li>TV SHOWS</li>
-                    <li>SHOP</li>
-                    <li>NEWS</li>
-                    <li>SHOWTIMES</li>
+                    <li><NuxtLink to="/movies">MOVIES</NuxtLink></li>
+                    <li><NuxtLink to="/tvShows">TV SHOWS</NuxtLink></li>
+                    <li><NuxtLink to="/shop">SHOP</NuxtLink></li>
+                    <li><NuxtLink to="/news">NEWS</NuxtLink></li>
+                    <li><NuxtLink to="/showTimes">SHOWTIMES</NuxtLink></li>
                 </ul>
             </div>
             
@@ -87,19 +87,23 @@ div{
         a:active{
             text-decoration: underline;
         } 
-        h4{
+        h5:hover{
             cursor: pointers;
         }
         li{
+            a, a:visited, a:active{
             font-size: 14px;
             padding: 10px;
             border-radius: 10px 10px 0 0;
+            text-decoration: none;
         }
-        li:hover{
+        a:hover{
             background-color: white;
             color:black;
             cursor: pointer;
         }
+    }
+       
     }
 }
 </style>

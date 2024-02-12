@@ -1,18 +1,19 @@
 <template>
     <div>
         <HeaderBar></HeaderBar>
-        <Contents></Contents>
+        <MoviesList></MoviesList>
+        
     </div>
 </template>
 
 <script>
-import axios from 'axios'
     export default {
         name:'index',
+       
         
     }
 </script>
 
 <style scoped>
-
+   
 </style>
