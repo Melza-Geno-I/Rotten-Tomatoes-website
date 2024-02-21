@@ -7,16 +7,16 @@
             </div>
             <!-- <MovieCart v-for="movie in movies" :key="movie.id" :movie="movie"></MovieCart> -->
             <ul class="movies">
-                <NuxtLink to="/MovieDetails" class="movie" v-for="movie in movies" :key="movie.id" :movie="movie" >
+                <!-- <NuxtLink :to="{name: 'MovieDetails', params:{id: movie.id}}" class="movie" v-for="movie in movies" :key="movie.id"> -->
+                <NuxtLink :to="`/movie/${movie.id}`" class="movie" v-for="movie in movies" :key="movie.id">
                     <div class="movie-details">
-                        <figure v-if="movie.backdrop_path">
-                            <img :src=" 'https://image.tmdb.org/t/p/original'+movie.backdrop_path" width="180" height="250" alt="">
+                        <figure v-if="movie.poster_path">
+                            <img :src=" 'https://image.tmdb.org/t/p/original'+movie.poster_path" width="180" height="250" alt="">
                         </figure>
                         <figcaption>
                             <div class="movie-rating">{{ movie.popularity }}<i class="ri-eye-line"></i></div>
                         <div class="movie-name">{{ movie.title }}</div>
                         </figcaption>
-                        
                     </div>
                     <button  @click="$store.commit('increment')"><i class="ri-add-circle-line">&nbsp;</i>WATCHLIST</button>
                 </NuxtLink>
@@ -28,18 +28,19 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
     export default {
         name:"MoviesList",
-        components:{
-            MovieDetails
-        },
         computed:{
-            movies(){
-                return this.$store.state.movies
-            }
+            ...mapGetters({
+            movies: 'getMovies'
+        })
+            // movies(){
+            //     return this.$store.state.movies
+            // }
         },
         mounted(){
-            this.$store.dispatch('getMovies');
+            this.$store.dispatch('fetchMovies');
         }
     }
 </script>
@@ -71,30 +72,53 @@
         display: flex;
         flex-direction: row;
         list-style: none;
-        gap:10px;
-        /* border: 1px solid red; */
+        gap:2.5px;
         overflow: auto;
+        font-family: Condensed, sans-serif;
+        font-size: 13px;
+        a, a:visited {
+            text-decoration: none;
+            color: black;
+        }
+        a:hover{
+            cursor: pointer;
+        }
+        a:active{
+            text-decoration: underline;
+        }
         .movie{
-        /* border: 1px solid green; */
-        text-align: center;
-
+            text-align: center;
             .movie-details{
+                width: 180px;
+                height: 330px;
                 text-align: left;
-                background-color: beige;
+                border-radius: 10%;
+
                 figure{
+                    border: 0.1px solid transparent ;
+                    border-radius: 10%;
+
                     margin:0;
-                    
+
                     img{
-                        border-radius: 10px;
+                        object-fit: contain;
                     }
                 }
                 figcaption{
-                    font-family: Poppins, sans-serif;
-                    font-size: 12px;
-                    padding: 5px;
+                    padding: 10px;
                     div{
-                        padding: 3px;
-                    }
+                    padding: 5px;
+                }
+                } 
+            }
+            .movie-details:hover{
+                cursor: pointer;
+                figure{
+                    filter: brightness(90%);
+                }
+                figcaption:hover{
+                    color: #5384CA;
+
                 }
             }
             button{
@@ -110,7 +134,7 @@
                 cursor: pointer;
             }
         }
-    }
+}
 
 
 
