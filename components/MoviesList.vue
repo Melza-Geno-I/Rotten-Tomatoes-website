@@ -134,7 +134,7 @@ import { mapGetters } from 'vuex'
                 cursor: pointer;
             }
         }
-    }
+}
 
 
 

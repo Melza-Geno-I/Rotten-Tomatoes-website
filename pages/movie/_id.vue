@@ -43,6 +43,7 @@ import { mapGetters } from 'vuex';
   a, a:visited {
         text-decoration: none;
         color: black;
+        font-size: 25px;
     }
     a:hover{
         cursor: pointer;
