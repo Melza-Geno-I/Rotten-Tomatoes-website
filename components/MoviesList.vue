@@ -51,11 +51,10 @@ import { mapGetters } from 'vuex'
 }
 .heading{
     margin-top: 30px;
-    font-weight: 900;
-    font-weight: bold;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-weight: bolder;
     a, a:hover, a:visited{
         color:#2A62C2;
         font-size: 13px;

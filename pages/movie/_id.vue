@@ -1,6 +1,7 @@
 <template>
     <div>
         <HeaderBar></HeaderBar>
+        <SubHeader></SubHeader>
         <NuxtLink to="/"><i class="ri-arrow-left-double-line"></i></NuxtLink>
         
         <main v-if="movie">

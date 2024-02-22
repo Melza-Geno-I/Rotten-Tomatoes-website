@@ -20,6 +20,7 @@
                     <li><NuxtLink to="/news">NEWS</NuxtLink></li>
                     <li><NuxtLink to="/showTimes">SHOWTIMES</NuxtLink></li>
                 </ul>
+                
             </div>
             
         </header>
@@ -28,7 +29,8 @@
 
 <script>
     export default {
-        name:'Header'
+        name:'Header',
+        input:''
     }
 </script>
 
@@ -71,7 +73,7 @@ div{
     flex-direction: column;
     color: white;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 13px;
     text-align: left;
     .nav{
         margin: 0 5px 0 0;
@@ -91,13 +93,13 @@ div{
             cursor: pointers;
         }
         li{
-            a, a:visited, a:active{
-            font-size: 14px;
+           a,a:visited,a:active{
+            font-size: 13px;
             padding: 10px;
             border-radius: 10px 10px 0 0;
             text-decoration: none;
         }
-        a:hover{
+       a:hover{
             background-color: white;
             color:black;
             cursor: pointer;
