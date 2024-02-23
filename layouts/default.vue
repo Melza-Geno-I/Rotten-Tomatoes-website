@@ -1,6 +1,6 @@
 <template>
-    <div class="page">
-        <div class="container">
+    <div >
+        <div >
             <Nuxt></Nuxt>
         </div>
         

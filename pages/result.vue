@@ -3,7 +3,6 @@
         <div class="container-flex">
             <HeaderBar></HeaderBar>
             <SubHeader></SubHeader>
-            <Carousel></Carousel>
             <MoviesList></MoviesList>
         </div>
     </div>
