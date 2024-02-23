@@ -15,13 +15,13 @@ export const state = () => ({
   
   export const mutations = {
 
-    set_movies: (state, value) => {
+    setMovies: (state, value) => {
         state.movies = value
     },
-    set_movie: (state, value) => {
+    setMovie: (state, value) => {
       state.movie = value
     },
-    set_pagination: (state, value) => {
+    setPagination: (state, value) => {
       state.pagination = value
     }
   }
@@ -33,14 +33,22 @@ export const state = () => ({
       this.$axios.get('/trending/movie/week').then((response) => {
           const { page, total_pages, total_results } = response
           commit('set_pagination',{ page, total_pages, total_results } )
-          commit('set_movies', response.data.results)
+          commit('setMovies', response.data.results)
         })
         // console.log(response.data);
         
     },
     fetchMovie ({commit}, movieId) {
       this.$axios.get(`/movie/${movieId}`).then(response => {
-        commit('set_movie', response.data)
+        commit('setMovie', response.data)
+    })
+  },
+  searchMovie({commit}, value){
+    this.$axios.get(`/search/movie?query=${value}`).then(response => {
+      const { page, total_pages, total_results } = response
+      commit('set_pagination',{ page, total_pages, total_results } )
+      commit('setMovies', response.data.results)
+      this.router.push('/result')
     })
   }
 }

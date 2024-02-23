@@ -2,7 +2,7 @@
         <el-row>
             <el-col :span="12">
                 <div class="grid-content-1 ">
-                    <el-carousel :interval="5000" arrow="always" indicator-position="none">
+                    <el-carousel :interval="3000" arrow="always" indicator-position="none">
                         <el-carousel-item v-for="(item, index) in movies" :key="index">
                                 <el-image class="carousel-img"  :src="'https://image.tmdb.org/t/p/original'+item.backdrop_path" alt="" fit="contain" ></el-image>
                         </el-carousel-item>
@@ -56,7 +56,6 @@
 .grid-content-2{
     width: calc(100%/2);
     height: 300px;
-
 }
 
 </style>

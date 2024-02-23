@@ -5,7 +5,9 @@
                 <figure>
                     <img src="../assets/rtlogo.9b892cff3fd.png" alt="Rotten Tomatoes" width="161px" height="50px">
                 </figure>
-                <input class="ri-search-line" type="text" placeholder="Search movies, TV, actors, more...">
+                <!-- <input  class="ri-search-line search-bar" type="search" placeholder="Search movies, TV, actors, more..." @keyup.enter="search"> -->
+                <el-input placeholder="Search movies, TV, actors, more..." prefix-icon="el-icon-search" v-model="input" @change="search" clearable>
+                </el-input>
             </div>
             <div class=" header-part2">
                 <div class="nav">
@@ -30,7 +32,25 @@
 <script>
     export default {
         name:'Header',
-        input:''
+        data(){
+            return{
+                input:null,
+
+            }
+        },
+        methods:{
+            search(value){
+                // console.log(value)
+                if(value && value!=null){
+                    this.$store.dispatch('searchMovie', value)
+                    this.input=''
+                }
+                else{
+                    this.$message.warning('Please type something to search')
+                }
+                
+            }
+        }
     }
 </script>
 
@@ -52,7 +72,7 @@ div{
     flex-direction: row;
     align-items: center;
 }
-.header-part1 input{
+/* .el-input{
     background-color: #961E06;
     border: 1px solid white;
     border-radius: 30px;
@@ -62,12 +82,20 @@ div{
     padding:5px;
     caret-color: white;
 }
+
 ::placeholder{
         color: white;
         font-size: 12px;
         font-family: Poppins, sans-serif;
 
+} */
+.header-part1{
+    .el-input{
+        width:25rem;
+
+    }
 }
+
 .header-part2{
     display: flex;
     flex-direction: column;
